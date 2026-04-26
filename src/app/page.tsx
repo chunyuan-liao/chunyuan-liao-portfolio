@@ -1,8 +1,8 @@
 'use client';
 
 import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; // 需要安裝 react-icons
+import { InlineMath, BlockMath } from 'react-katex';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Home() {
   const categories = [
@@ -12,100 +12,89 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex h-screen bg-[#0a0a0a] text-[#e0e0e0] font-serif">
+    <div className="flex h-screen bg-[#050505] text-[#d1d1d1] font-sans antialiased">
       
-      {/* --- 左側側邊欄 (Sidebar) --- */}
-      <aside className="w-64 border-r border-gray-900 flex flex-col p-8 fixed h-full z-20 bg-[#0a0a0a]">
-        {/* 頂部：個人姓名 */}
-        <div className="mb-12">
-          <h1 className="text-xl font-bold text-white tracking-tighter">
+      {/* 左側側邊欄：增加玻璃磨砂感與精細字體 */}
+      <aside className="w-72 border-r border-[#1a1a1a] flex flex-col p-10 fixed h-full z-20 bg-[#050505]">
+        <div className="mb-16">
+          <h1 className="text-2xl font-medium text-white tracking-tight italic">
             <InlineMath math="\mathbf{C. Y. \,\, LIAO}" />
           </h1>
-          <p className="text-[10px] text-gray-600 mt-1 uppercase tracking-widest">NTU MATH @ 2029</p>
+          <p className="text-[10px] text-gray-500 mt-2 uppercase tracking-[0.3em] font-medium">NTU MATH · Class of 2029</p>
         </div>
 
-        {/* 中間：分類清單 */}
-        <nav className="flex-1 space-y-6">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Categories</p>
+        <nav className="flex-1 space-y-10">
+          <p className="text-[10px] text-emerald-500/50 uppercase tracking-[0.2em] font-bold">Directory</p>
           {categories.map((cat) => (
-            <div key={cat.name} className="group cursor-pointer">
-              <div className="text-sm text-gray-400 group-hover:text-emerald-500 transition-colors">
+            <div key={cat.name} className="group cursor-pointer block">
+              <div className="text-[15px] text-gray-400 group-hover:text-white transition-all duration-300">
                 {cat.name}
               </div>
-              <div className="text-[11px] text-gray-600 font-mono mt-1 group-hover:text-emerald-700 transition-colors">
+              <div className="text-[11px] text-gray-600 font-mono mt-1 group-hover:text-emerald-500/70 transition-all duration-300">
                 <InlineMath math={cat.math} />
               </div>
             </div>
           ))}
         </nav>
 
-        {/* 左下角：GitHub 連結 (圖片呈現) */}
-        <div className="mt-auto pt-6 border-t border-gray-900">
-          <a 
-            href="https://github.com/chunyuan-liao" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-gray-500 hover:text-white transition-colors group"
-          >
-            <div className="p-2 border border-gray-800 rounded-md group-hover:border-white transition-all">
-              <FaGithub size={20} />
-            </div>
-            <div className="text-xs font-mono tracking-tighter text-gray-600 group-hover:text-white">
-              GITHUB
-            </div>
+        <div className="mt-auto pt-8 border-t border-[#1a1a1a]">
+          <a href="https://github.com/chunyuan-liao" target="_blank" className="flex items-center gap-4 text-gray-500 hover:text-white transition-all group">
+            <FaGithub size={22} className="opacity-50 group-hover:opacity-100" />
+            <span className="text-[10px] tracking-[0.2em] font-bold">SOURCE CODE</span>
           </a>
         </div>
       </aside>
 
-      {/* --- 右側內容區 (Main Content) --- */}
-      <main className="flex-1 ml-64 overflow-y-auto">
-        <div className="max-w-4xl p-16 space-y-24">
+      {/* 右側內容區：字體大小比例重調 */}
+      <main className="flex-1 ml-72 overflow-y-auto selection:bg-emerald-500/30">
+        <div className="max-w-5xl p-20 space-y-32">
           
-          {/* Welcome / Intro */}
-          <section className="py-20 border-b border-gray-900/50">
-            <div className="space-y-6">
-              <h2 className="text-5xl font-light text-white leading-tight">
-                Exploring the frontiers of <br />
-                <span className="italic text-emerald-500/80">Stochastic Modeling</span> & 
-                <span className="italic text-blue-500/80"> Strategic Play</span>.
-              </h2>
-              <p className="max-w-xl text-gray-500 leading-relaxed">
-                台大數學系，專注於離散數學、隨機過程與量化交易。這裡是我整合學術研究、德州撲克博弈論與交易競賽心得的空間。
-              </p>
-            </div>
+          <section className="py-24">
+            <h2 className="text-6xl font-light text-white leading-[1.15] tracking-tight mb-10">
+              Exploring the frontiers of <br />
+              <span className="text-emerald-500 font-serif italic italic-math">Stochastic Modeling</span> <span className="text-gray-600">&</span> <br />
+              <span className="text-blue-500 font-serif italic italic-math">Strategic Play</span>.
+            </h2>
+            <p className="max-w-2xl text-lg text-gray-400 leading-relaxed font-light">
+              台大數學系，專注於離散數學、隨機過程與量化交易。這裡是我整合學術研究、德州撲克博弈論與交易競賽心得的空間。
+            </p>
           </section>
 
-          {/* Quant Section */}
-          <section className="space-y-8">
-            <h3 className="text-xs font-mono text-gray-600 uppercase tracking-widest border-l-2 border-emerald-500 pl-4">
+          <section className="space-y-12">
+            <h3 className="text-[11px] font-bold text-gray-600 uppercase tracking-[0.3em] flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-emerald-900"></span>
               <InlineMath math="\S \,\, \text{Quant Related}" />
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 bg-white/[0.02] border border-gray-900 hover:border-emerald-500/30 transition-all">
-                <p className="text-xs text-emerald-500 mb-2">JANE STREET</p>
-                <h4 className="text-lg text-white mb-2 font-medium">FTTP Participant</h4>
-                <p className="text-sm text-gray-500 leading-relaxed italic">Market making and institutional trading logic.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="group p-10 bg-[#0a0a0a] border border-[#1a1a1a] hover:border-emerald-500/20 transition-all duration-500">
+                <p className="text-[10px] text-emerald-500 font-bold tracking-widest mb-6">JANE STREET</p>
+                <h4 className="text-2xl text-white mb-4 font-normal">FTTP Participant</h4>
+                <p className="text-sm text-gray-500 leading-relaxed font-light italic">
+                  Institutional market making simulations and stochastic modeling workshops in Hong Kong.
+                </p>
               </div>
-              <div className="p-6 bg-white/[0.02] border border-gray-900 hover:border-blue-500/30 transition-all">
-                <p className="text-xs text-blue-500 mb-2">CITADEL</p>
-                <h4 className="text-lg text-white mb-2 font-medium">Terminal Regional Finalist</h4>
-                <p className="text-sm text-gray-500 leading-relaxed italic">Algorithmic strategy under high latency constraints.</p>
+              <div className="group p-10 bg-[#0a0a0a] border border-[#1a1a1a] hover:border-blue-500/20 transition-all duration-500">
+                <p className="text-[10px] text-blue-500 font-bold tracking-widest mb-6">CITADEL</p>
+                <h4 className="text-2xl text-white mb-4 font-normal">Terminal Finalist</h4>
+                <p className="text-sm text-gray-500 leading-relaxed font-light italic">
+                  Algorithmic strategy development under competitive low-latency simulation environments.
+                </p>
               </div>
             </div>
           </section>
 
-          {/* Poker Section */}
-          <section className="space-y-8">
-            <h3 className="text-xs font-mono text-gray-600 uppercase tracking-widest border-l-2 border-blue-500 pl-4">
-              <InlineMath math="\S \,\, \text{Poker Strategy}" />
+          <section className="space-y-12 pb-40">
+             <h3 className="text-[11px] font-bold text-gray-600 uppercase tracking-[0.3em] flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-blue-900"></span>
+              <InlineMath math="\S \,\, \text{Research Methodology}" />
             </h3>
-            <div className="bg-white/[0.01] p-10 border border-gray-900">
-              <p className="text-3xl text-gray-400 font-light mb-6 leading-relaxed">
-                Analyzing range construction through the lens of <br />
-                <span className="text-white italic">Game Theory Optimal (GTO)</span> solvers.
+            <div className="bg-[#0a0a0a] p-12 border border-[#1a1a1a] rounded-sm">
+              <p className="text-3xl text-gray-300 font-light leading-snug mb-10">
+                "Analyzing range construction through the lens of <br />
+                <span className="text-white font-serif italic">Game Theory Optimal (GTO)</span> solvers."
               </p>
-              <div className="text-xs text-gray-600">
-                <InlineMath math="EV = \sum (P_i \times W_i) - \text{Risk}" />
+              <div className="pt-8 border-t border-[#1a1a1a] text-emerald-500/80">
+                <BlockMath math="E[V] = \sum_{i=1}^{n} P_i W_i - L(1-P)" />
               </div>
             </div>
           </section>
