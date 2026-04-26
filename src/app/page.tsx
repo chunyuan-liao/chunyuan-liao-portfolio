@@ -6,9 +6,14 @@ import { FaGithub } from 'react-icons/fa';
 
 export default function Home() {
   const categories = [
-    { name: '修課心得', math: '\\text{Course Reviews}' },
+    { name: '大學修課心得分享', math: '\\text{Course Reviews}' },
+    { name: 'quant相關經驗心得分享', math: '\\text{Quant Experiences}' },
+  ];
+
+  const interests = [
+    { name: '健身', math: '\\text{Fitness}' },
     { name: 'Poker', math: '\\text{Game Theory}' },
-    { name: 'Quant 相關', math: '\\text{Quantitative Research}' },
+    { name: '烹飪', math: '\\text{Baking \\& Culinary}' },
   ];
 
   return (
@@ -26,19 +31,40 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 分類清單 */}
-        <nav className="flex-1 space-y-10">
-          <p className="text-[10px] text-emerald-500/50 uppercase tracking-[0.2em] font-bold">Directory</p>
-          {categories.map((cat) => (
-            <div key={cat.name} className="group cursor-pointer block">
-              <div className="text-[15px] text-gray-400 group-hover:text-white transition-all duration-300 font-light">
-                {cat.name}
-              </div>
-              <div className="text-[11px] text-gray-600 font-mono mt-1 group-hover:text-emerald-500/70 transition-all duration-300">
-                <InlineMath math={cat.math} />
-              </div>
+        {/* 分類導覽 */}
+        <nav className="flex-1 space-y-10 overflow-y-auto pr-2 custom-scrollbar">
+          <div>
+            <p className="text-[10px] text-emerald-500/50 uppercase tracking-[0.2em] font-bold mb-6">Directory</p>
+            <div className="space-y-8">
+              {categories.map((cat) => (
+                <div key={cat.name} className="group cursor-pointer block">
+                  <div className="text-[14px] text-gray-400 group-hover:text-white transition-all duration-300 font-light leading-snug">
+                    {cat.name}
+                  </div>
+                  <div className="text-[10px] text-gray-600 font-mono mt-1 group-hover:text-emerald-500/70 transition-all duration-300">
+                    <InlineMath math={cat.math} />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* 興趣分享：帶有層次的子目錄 */}
+          <div>
+            <p className="text-[10px] text-blue-500/50 uppercase tracking-[0.2em] font-bold mb-6">一些興趣分享</p>
+            <div className="pl-4 border-l border-gray-900 space-y-6">
+              {interests.map((item) => (
+                <div key={item.name} className="group cursor-pointer block">
+                  <div className="text-[13px] text-gray-500 group-hover:text-white transition-all duration-300 font-light">
+                    {item.name}
+                  </div>
+                  <div className="text-[9px] text-gray-700 font-mono mt-0.5 group-hover:text-blue-500/70 transition-all duration-300">
+                    <InlineMath math={item.math} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </nav>
 
         {/* 左下角：其他相關 (純圖標) */}
@@ -60,7 +86,7 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* --- 右側內容區 (Main Content) --- */}
+      {/* --- 右側內容區 (全量保留) --- */}
       <main className="flex-1 ml-72 overflow-y-auto selection:bg-emerald-500/30 bg-[#050505]">
         <div className="max-w-5xl p-20 space-y-32">
           
