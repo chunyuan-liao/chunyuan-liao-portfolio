@@ -1,7 +1,7 @@
 'use client';
 
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
+import { InlineMath } from 'react-katex';
 import { FaGithub } from 'react-icons/fa';
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
       
       {/* --- 左側側邊欄 (Sidebar) --- */}
       <aside className="w-72 border-r border-[#1a1a1a] flex flex-col p-10 fixed h-full z-20 bg-[#050505]">
+        {/* 個人姓名與系所 */}
         <div className="mb-16">
           <h1 className="text-xl font-medium text-white tracking-tight">
             <InlineMath math="\mathbf{Chun\text{-}Yuan \,\, Liao}" />
@@ -25,6 +26,7 @@ export default function Home() {
           </p>
         </div>
 
+        {/* 分類清單 */}
         <nav className="flex-1 space-y-10">
           <p className="text-[10px] text-emerald-500/50 uppercase tracking-[0.2em] font-bold">Directory</p>
           {categories.map((cat) => (
@@ -39,11 +41,22 @@ export default function Home() {
           ))}
         </nav>
 
+        {/* 左下角：其他相關 (純圖標) */}
         <div className="mt-auto pt-8 border-t border-[#1a1a1a]">
-          <a href="https://github.com/chunyuan-liao" target="_blank" className="flex items-center gap-4 text-gray-500 hover:text-white transition-all group">
-            <FaGithub size={22} className="opacity-50 group-hover:opacity-100" />
-            <span className="text-[10px] tracking-[0.2em] font-bold italic">SOURCE CODE</span>
-          </a>
+          <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mb-6">
+            其他相關
+          </p>
+          <div className="flex items-center gap-6">
+            <a 
+              href="https://github.com/chunyuan-liao" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-all duration-300"
+              title="GitHub"
+            >
+              <FaGithub size={24} className="opacity-60 hover:opacity-100" />
+            </a>
+          </div>
         </div>
       </aside>
 
@@ -87,7 +100,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Poker / Research 區塊 */}
+          {/* Poker / Strategic Analysis 區塊 */}
           <section className="space-y-12 pb-40">
              <h3 className="text-[11px] font-bold text-gray-600 uppercase tracking-[0.3em] flex items-center gap-4">
               <span className="w-8 h-[1px] bg-blue-900"></span>
