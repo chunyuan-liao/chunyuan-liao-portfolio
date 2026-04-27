@@ -31,7 +31,7 @@ export default function Home() {
             <InlineMath math="\mathbf{Chun\text{-}Yuan \,\, Liao}" />
           </h1>
           <p className="text-sm text-gray-300 mt-2 uppercase tracking-[0.2em] font-medium">
-            B.S. in Mathematics, NTU
+            B.S. Mathematics, NTU
           </p>
         </div>
 
