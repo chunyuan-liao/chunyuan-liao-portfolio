@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="flex h-screen font-sans antialiased">
       
-      {/* --- 左側側邊欄 (Sidebar) - 維持黑底 (不要動) --- */}
+      {/* --- 左側側邊欄 (Sidebar) - 維持黑底 --- */}
       <aside className="w-80 border-r border-[#2a2a2a] flex flex-col p-10 fixed h-full z-20 bg-[#050505] text-gray-100">
         <div className="mb-16">
           <h1 className="text-2xl font-bold text-white tracking-tight">
@@ -103,11 +103,10 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* --- 右側內容區 - 改為白底黑字 --- */}
+      {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-white text-gray-900 overflow-y-auto selection:bg-gray-200">
         <div className="max-w-5xl p-24">
           
-          {/* Home 內容 */}
           {activeTab === 'home' && (
             <section className="animate-in fade-in duration-700">
               <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">個人介紹</h2>
@@ -119,45 +118,43 @@ export default function Home() {
             </section>
           )}
 
-          {/* 大學修課心得 */}
           {activeTab === 'course' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">
                 Course Reviews
               </h3>
               <div className="grid grid-cols-1 gap-8">
-                <div className="p-12 border border-gray-100 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-500 group cursor-pointer">
-                  <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
+                {/* 框框背景改為 gray-100 */}
+                <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
+                  <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114</p>
                   <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">114-1 修課心得</h4>
                 </div>
-                <div className="p-12 border border-gray-100 bg-gray-50 hover:bg-blue-50 hover:border-blue-200 transition-all duration-500 group cursor-pointer">
-                  <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
+                <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
+                  <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114</p>
                   <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">114-2 修課心得</h4>
                 </div>
               </div>
             </section>
           )}
 
-          {/* Quant 經歷 */}
           {activeTab === 'quant' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">
                 Quant Experiences
               </h3>
               <div className="grid grid-cols-1 gap-8">
-                <div className="p-12 border border-gray-100 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-500 group">
+                <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                   <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
                   <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">Jane Street FTTP</h4>
                 </div>
-                <div className="p-12 border border-gray-100 bg-gray-50 hover:bg-blue-50 hover:border-blue-200 transition-all duration-500 group">
+                <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                   <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
-                  <h4 className="text-3xl text-white font-normal group-hover:text-blue-700 transition-colors">Citadel APAC The Terminal</h4>
+                  <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">Citadel APAC The Terminal</h4>
                 </div>
               </div>
             </section>
           )}
 
-          {/* 隨手亂寫 */}
           {activeTab === 'notes' && (
             <div className="h-full flex items-center justify-center pt-20">
               <p className="text-gray-400 font-mono italic text-lg">Content under construction...</p>
