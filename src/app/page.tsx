@@ -20,6 +20,12 @@ export default function Home() {
     { name: '烹飪', math: '\\text{Baking \\& Culinary}' },
   ];
 
+  // 重置回主頁的函數
+  const goHome = () => {
+    setIsInterestsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="flex h-screen bg-[#050505] text-gray-100 font-sans antialiased">
       
@@ -38,6 +44,18 @@ export default function Home() {
           <div>
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
             <div className="space-y-10">
+              
+              {/* Home 分類 */}
+              <div key="home" onClick={goHome} className="group cursor-pointer block">
+                <div className="text-lg text-gray-200 group-hover:text-white transition-all duration-300 font-normal leading-snug">
+                  Home
+                </div>
+                <div className="text-sm text-gray-400 font-mono mt-2 group-hover:text-emerald-400 transition-all duration-300">
+                  <InlineMath math="\\text{Back to Hub}" />
+                </div>
+              </div>
+
+              {/* 其他主分類 */}
               {categories.map((cat) => (
                 <div key={cat.name} className="group cursor-pointer block">
                   <div className="text-lg text-gray-200 group-hover:text-white transition-all duration-300 font-normal leading-snug">
@@ -49,6 +67,7 @@ export default function Home() {
                 </div>
               ))}
 
+              {/* 興趣分享手風琴 */}
               <div className="group">
                 <button 
                   onClick={() => setIsInterestsOpen(!isInterestsOpen)}
@@ -84,24 +103,14 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* 左下角圖標：GitHub & LinkedIn */}
+        {/* 左下角圖標 */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
           <div className="flex items-center gap-8">
-            <a 
-              href="https://github.com/chunyuan-liao" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-300 hover:text-white transition-all duration-300"
-            >
+            <a href="https://github.com/chunyuan-liao" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-all duration-300">
               <FaGithub size={32} />
             </a>
-            <a 
-              href="https://linkedin.com/in/chunyuan-liao" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-300 hover:text-white transition-all duration-300"
-            >
+            <a href="https://linkedin.com/in/chunyuan-liao" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-all duration-300">
               <FaLinkedin size={32} />
             </a>
           </div>
@@ -110,7 +119,7 @@ export default function Home() {
 
       {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-[#050505]">
-        {/* 維持空白，等待內容填充 */}
+        {/* 維持全黑留白 */}
       </main>
     </div>
   );
