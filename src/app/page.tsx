@@ -11,6 +11,7 @@ export default function Home() {
   const categories = [
     { name: '大學修課心得分享', math: '\\text{Course Reviews}' },
     { name: 'quant相關經驗心得分享', math: '\\text{Quant Experiences}' },
+    { name: '隨手亂寫', math: '\\text{Miscellaneous Notes}' },
   ];
 
   const interests = [
@@ -83,7 +84,7 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* 左下角圖標區域：GitHub & LinkedIn */}
+        {/* 左下角圖標：GitHub & LinkedIn */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
           <div className="flex items-center gap-8">
@@ -96,7 +97,7 @@ export default function Home() {
               <FaGithub size={32} />
             </a>
             <a 
-              href="https://www.linkedin.com/in/chunyuanliao/" 
+              href="https://linkedin.com/in/chunyuan-liao" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-300 hover:text-white transition-all duration-300"
@@ -107,9 +108,9 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* --- 右側內容區：維持空白 --- */}
+      {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-[#050505]">
-        {/* 右側目前為留白狀態 */}
+        {/* 維持空白，等待內容填充 */}
       </main>
     </div>
   );
