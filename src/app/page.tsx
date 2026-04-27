@@ -112,7 +112,7 @@ export default function Home() {
               <img 
                 src="/images/hk_night.jpg" 
                 alt="Hong Kong Night" 
-                className="absolute w-full h-[150%] object-cover object-bottom grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
+                className="absolute w-full h-[125%] object-cover object-bottom grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
             <div className="max-w-4xl px-24 py-20 space-y-32">
