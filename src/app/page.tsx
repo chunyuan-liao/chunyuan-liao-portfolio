@@ -7,7 +7,6 @@ import { FaGithub, FaLinkedin, FaChevronDown, FaChevronRight } from 'react-icons
 
 export default function Home() {
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
-  // 新增狀態來追蹤目前選中的分類，預設為 'home'
   const [activeTab, setActiveTab] = useState('home');
 
   const categories = [
@@ -41,7 +40,6 @@ export default function Home() {
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
             <div className="space-y-10">
               
-              {/* Home 分類 */}
               <div 
                 onClick={() => setActiveTab('home')} 
                 className={`group cursor-pointer block ${activeTab === 'home' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
@@ -54,7 +52,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 其他主分類 */}
               {categories.map((cat) => (
                 <div 
                   key={cat.id} 
@@ -70,7 +67,6 @@ export default function Home() {
                 </div>
               ))}
 
-              {/* 興趣分享手風琴 */}
               <div className="group">
                 <button 
                   onClick={() => setIsInterestsOpen(!isInterestsOpen)}
@@ -106,7 +102,6 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* 左下角圖標 */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
           <div className="flex items-center gap-8">
@@ -124,50 +119,62 @@ export default function Home() {
       <main className="flex-1 ml-80 bg-[#050505] overflow-y-auto">
         <div className="max-w-5xl p-24">
           
-          {/* 渲染 Home 內容 */}
+          {/* Home 內容 */}
           {activeTab === 'home' && (
             <section className="animate-in fade-in duration-700">
               <h2 className="text-6xl font-bold text-white mb-12 tracking-tighter">個人介紹</h2>
               <div className="space-y-6 text-xl text-gray-400 leading-relaxed font-light max-w-3xl">
-                <p>
-                  目前就讀於國立台灣大學數學系，專注於機率論、隨機過程與計算數學。
-                </p>
-                <p>
-                  熱衷於將深奧的數學理論轉化為量化交易中的決策工具，並在動態的市場環境中尋找穩健的統計規律。
-                </p>
-                <p>
-                  除了學術研究，我也積極參與各類量化競賽與實習計畫，不斷探索金融科技與策略博弈的邊界。
-                </p>
+                <p>目前就讀於國立台灣大學數學系，專注於機率論、隨機過程與計算數學。</p>
+                <p>熱衷於將深奧的數學理論轉化為量化交易中的決策工具，並在動態的市場環境中尋找穩健的統計規律。</p>
+                <p>除了學術研究，我也積極參與各類量化競賽與實習計畫，不斷探索金融科技與策略博弈的邊界。</p>
               </div>
             </section>
           )}
 
-          {/* 渲染 Quant 經歷內容 */}
+          {/* 大學修課心得內容 - 新增 114-1 與 114-2 */}
+          {activeTab === 'course' && (
+            <section className="animate-in fade-in duration-500 space-y-12">
+              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-12 font-mono">
+                <InlineMath math="\S \,\, \text{Course Reviews}" />
+              </h3>
+              <div className="grid grid-cols-1 gap-8">
+                <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-emerald-500/30 transition-all duration-500 group cursor-pointer">
+                  <p className="text-xs text-emerald-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
+                  <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">114-1 心得分享</h4>
+                  <p className="text-gray-500 mt-4 italic font-light">Semester I Review & Course Insights</p>
+                </div>
+                <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-blue-500/30 transition-all duration-500 group cursor-pointer">
+                  <p className="text-xs text-blue-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
+                  <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">114-2 心得分享</h4>
+                  <p className="text-gray-500 mt-4 italic font-light">Semester II Review & Course Insights</p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Quant 經歷內容 */}
           {activeTab === 'quant' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-12 font-mono">
                 <InlineMath math="\S \,\, \text{Quant Experiences}" />
               </h3>
               <div className="grid grid-cols-1 gap-8">
-                {/* Jane Street 區塊 */}
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-emerald-500/30 transition-all duration-500 group">
                   <p className="text-xs text-emerald-400 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">Jane Street FTTP</h4>
-                  <p className="text-gray-500 mt-4 italic font-light italic">First-Year Trading and Technology Program</p>
+                  <p className="text-gray-500 mt-4 italic font-light">First-Year Trading and Technology Program</p>
                 </div>
-
-                {/* Citadel 區塊 */}
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-blue-500/30 transition-all duration-500 group">
                   <p className="text-xs text-blue-400 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">Citadel APAC The Terminal</h4>
-                  <p className="text-gray-500 mt-4 italic font-light italic">Regional Algorithmic Trading Finalist</p>
+                  <p className="text-gray-500 mt-4 italic font-light">Regional Algorithmic Trading Finalist</p>
                 </div>
               </div>
             </section>
           )}
 
-          {/* 其他分類預留位置 */}
-          {(activeTab === 'course' || activeTab === 'notes') && (
+          {/* 隨手亂寫內容 */}
+          {activeTab === 'notes' && (
             <div className="h-full flex items-center justify-center pt-20">
               <p className="text-gray-600 font-mono italic">Content under construction...</p>
             </div>
