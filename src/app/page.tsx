@@ -105,14 +105,14 @@ export default function Home() {
       {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-white text-gray-900 overflow-y-auto selection:bg-gray-200">
         
-        {/* Home 分頁：超大圖片 (裁掉上方 1/3) + 內容 */}
+        {/* Home 分頁：裁切比例縮減為 1/4 (h-[133%]) */}
         {activeTab === 'home' && (
           <section className="animate-in fade-in duration-1000">
-            <div className="w-full h-[40vh] overflow-hidden relative group">
+            <div className="w-full h-[45vh] overflow-hidden relative group">
               <img 
                 src="/images/hk_night.jpg" 
                 alt="Hong Kong Night" 
-                className="absolute w-full h-[125%] object-cover object-bottom grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
+                className="absolute w-full h-[133%] object-cover object-bottom grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
             <div className="max-w-4xl px-24 py-20 space-y-32">
@@ -139,7 +139,7 @@ export default function Home() {
           </section>
         )}
 
-        {/* 非首頁分頁：統一容器 */}
+        {/* 非首頁分頁：所有區塊老實補齊 */}
         {activeTab !== 'home' && (
           <div className="max-w-5xl p-24">
             {/* 大學修課心得 */}
