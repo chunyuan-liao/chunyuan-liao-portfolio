@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
-import { FaGithub, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 
 export default function Home() {
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex h-screen bg-[#050505] text-gray-100 font-sans antialiased">
       
-      {/* --- 左側側邊欄 (Sidebar) - 完整保留所有功能與亮度 --- */}
+      {/* --- 左側側邊欄 (Sidebar) --- */}
       <aside className="w-80 border-r border-[#2a2a2a] flex flex-col p-10 fixed h-full z-20 bg-[#050505]">
         <div className="mb-16">
           <h1 className="text-2xl font-bold text-white tracking-tight">
@@ -83,19 +83,33 @@ export default function Home() {
           </div>
         </nav>
 
+        {/* 左下角圖標區域：GitHub & LinkedIn */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
-          <div className="flex items-center gap-10">
-            <a href="https://github.com/chunyuan-liao" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-all duration-300">
+          <div className="flex items-center gap-8">
+            <a 
+              href="https://github.com/chunyuan-liao" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-300 hover:text-white transition-all duration-300"
+            >
               <FaGithub size={32} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/chunyuanliao/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-300 hover:text-white transition-all duration-300"
+            >
+              <FaLinkedin size={32} />
             </a>
           </div>
         </div>
       </aside>
 
-      {/* --- 右側內容區：依照要求刪除所有大字，維持空白待定 --- */}
+      {/* --- 右側內容區：維持空白 --- */}
       <main className="flex-1 ml-80 bg-[#050505]">
-        {/* 這裡目前是乾淨的留白狀態 */}
+        {/* 右側目前為留白狀態 */}
       </main>
     </div>
   );
