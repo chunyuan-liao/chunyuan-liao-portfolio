@@ -108,7 +108,7 @@ export default function Home() {
         {/* Home 分頁：裁切比例縮減為 1/4 (h-[133%]) */}
         {activeTab === 'home' && (
           <section className="animate-in fade-in duration-1000">
-            <div className="w-full h-[45vh] overflow-hidden relative group">
+            <div className="w-full h-[70vh] overflow-hidden relative group">
               <img 
                 src="/images/hk_night.jpg" 
                 alt="Hong Kong Night" 
