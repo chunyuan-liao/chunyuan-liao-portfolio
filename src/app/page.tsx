@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex h-screen bg-[#050505] text-gray-100 font-sans antialiased">
       
-      {/* --- 左側側邊欄 (Sidebar) - 完整保留 --- */}
+      {/* --- 左側側邊欄 (Sidebar) - 完整保留所有功能與亮度 --- */}
       <aside className="w-80 border-r border-[#2a2a2a] flex flex-col p-10 fixed h-full z-20 bg-[#050505]">
         <div className="mb-16">
           <h1 className="text-2xl font-bold text-white tracking-tight">
@@ -93,51 +93,9 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* --- 右側內容區 - 僅刪除英雄區塊 --- */}
-      <main className="flex-1 ml-80 overflow-y-auto bg-[#050505] selection:bg-emerald-500/30">
-        <div className="max-w-5xl p-24 space-y-36">
-          
-          {/* 英雄區塊已依照要求刪除，內容直接從經歷開始 */}
-
-          {/* Quant 經歷區塊 - 完整保留 */}
-          <section className="space-y-16">
-            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] flex items-center gap-6 font-mono text-bright">
-              <span className="w-12 h-[1px] bg-emerald-800/60"></span>
-              <InlineMath math="\S \,\, \text{Quant Related}" />
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="group p-12 bg-[#0a0a0a] border border-[#1a1a1a] hover:border-emerald-500/20 transition-all duration-500">
-                <p className="text-xs text-emerald-400 font-bold tracking-widest mb-8 uppercase">Jane Street</p>
-                <h4 className="text-3xl text-white mb-6 font-normal">FTTP Participant</h4>
-                <p className="text-lg text-gray-400 leading-relaxed font-light italic">
-                  Institutional market making simulations and stochastic modeling workshops in Hong Kong.
-                </p>
-              </div>
-              <div className="group p-12 bg-[#0a0a0a] border border-[#1a1a1a] hover:border-blue-500/20 transition-all duration-500">
-                <p className="text-xs text-blue-400 font-bold tracking-widest mb-8 uppercase">Citadel</p>
-                <h4 className="text-3xl text-white mb-6 font-normal">Terminal Finalist</h4>
-                <p className="text-lg text-gray-400 leading-relaxed font-light italic">
-                  Algorithmic strategy development under competitive low-latency simulation environments.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Strategic Analysis 區塊 - 完整保留 */}
-          <section className="space-y-16 pb-48">
-             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] flex items-center gap-6 font-mono">
-              <span className="w-12 h-[1px] bg-blue-800/60"></span>
-              <InlineMath math="\S \,\, \text{Strategic Analysis}" />
-            </h3>
-            <div className="bg-[#0a0a0a] p-16 border border-[#1a1a1a] rounded-sm">
-              <p className="text-5xl text-gray-300 font-light leading-[1.2]">
-                "Analyzing range construction through the lens of <br />
-                <span className="text-white font-serif italic">Game Theory Optimal (GTO)</span> solvers."
-              </p>
-            </div>
-          </section>
-
-        </div>
+      {/* --- 右側內容區：依照要求刪除所有大字，維持空白待定 --- */}
+      <main className="flex-1 ml-80 bg-[#050505]">
+        {/* 這裡目前是乾淨的留白狀態 */}
       </main>
     </div>
   );
