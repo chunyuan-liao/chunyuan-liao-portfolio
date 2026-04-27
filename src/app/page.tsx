@@ -24,13 +24,12 @@ export default function Home() {
   return (
     <div className="flex h-screen font-sans antialiased">
       
-      {/* --- 左側側邊欄 (Sidebar) --- */}
+      {/* --- 左側側邊欄 (Sidebar) - 絕對不動 --- */}
       <aside className="w-80 border-r border-[#2a2a2a] flex flex-col p-10 fixed h-full z-20 bg-[#050505] text-gray-100">
         <div className="mb-16">
           <h1 className="text-2xl font-bold text-white tracking-tight">
             <InlineMath math="\mathbf{Chun\text{-}Yuan \,\, Liao}" />
           </h1>
-          {/* 更新學位：拿掉 "in"，更俐落 */}
           <p className="text-sm text-gray-300 mt-2 uppercase tracking-[0.2em] font-medium">
             B.S. Mathematics, NTU
           </p>
@@ -40,7 +39,6 @@ export default function Home() {
           <div>
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
             <div className="space-y-8">
-              
               <div 
                 onClick={() => setActiveTab('home')} 
                 className={`group cursor-pointer block ${activeTab === 'home' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
@@ -104,39 +102,50 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* --- 右側內容區 - 白底黑字 --- */}
+      {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-white text-gray-900 overflow-y-auto selection:bg-gray-200">
-        <div className="max-w-5xl p-24">
+        <div className="max-w-5xl p-24 relative">
           
           {/* Home 內容 */}
           {activeTab === 'home' && (
-            <section className="animate-in fade-in duration-700 space-y-24">
-              {/* 第一部分：個人介紹 */}
-              <div>
-                <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">個人介紹</h2>
-                <div className="space-y-6 text-xl text-gray-600 leading-relaxed font-light max-w-3xl">
-                  <p>目前就讀於國立台灣大學數學系，專注於機率論、隨機過程與計算數學。</p>
-                  <p>熱衷於將深奧的數學理論轉化為量化交易中的決策工具，並在動態的市場環境中尋找穩健的統計規律。</p>
-                  <p>除了學術研究，我也積極參與各類量化競賽與實習計畫，不斷探索金融科技與策略博弈的邊界。</p>
-                </div>
+            <section className="animate-in fade-in duration-700">
+              
+              {/* 右上角圖片：路徑已更新至 images 資料夾 */}
+              <div className="absolute top-24 right-24 w-80 shadow-2xl rounded-sm overflow-hidden border-4 border-white">
+                <img 
+                  src="/images/hk_night.jpg" 
+                  alt="Hong Kong Night" 
+                  className="w-full h-auto object-cover"
+                />
               </div>
 
-              {/* 第二部分：關於這裡 - 大小一致 */}
-              <div>
-                <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">關於這裡</h2>
-                <div className="space-y-6 text-xl text-gray-600 leading-relaxed font-light max-w-3xl">
-                  <p>
-                    這裡是我用來紀錄學術足跡、量化思考與生活隨筆的空間。透過文字，我試著將抽象的數學邏輯實體化，並將其應用在對市場與博弈的理解中。
-                  </p>
-                  <p>
-                    除了硬核的技術分享，這裡也會存放我對德州撲克（GTO分析）、健身與烹飪的熱情，因為我深信嚴謹的邏輯與生活的感性是相輔相成的。
-                  </p>
+              {/* 文字內容 */}
+              <div className="pr-96">
+                <div className="mb-24">
+                  <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">個人介紹</h2>
+                  <div className="space-y-6 text-xl text-gray-600 leading-relaxed font-light max-w-xl">
+                    <p>目前就讀於國立台灣大學數學系，專注於機率論、隨機過程與計算數學。</p>
+                    <p>熱衷於將深奧的數學理論轉化為量化交易中的決策工具，並在動態的市場環境中尋找穩健的統計規律。</p>
+                    <p>除了學術研究，我也積極參與各類量化競賽與實習計畫，不斷探索金融科技與策略博弈的邊界。</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">關於這裡</h2>
+                  <div className="space-y-6 text-xl text-gray-600 leading-relaxed font-light max-w-xl">
+                    <p>
+                      這裡是我用來紀錄學術足跡、量化思考與生活隨筆的空間。透過文字，我試著將抽象的數學邏輯實體化，並將其應用在對市場與博弈的理解中。
+                    </p>
+                    <p>
+                      除了硬核的技術分享，這裡也會存放我對德州撲克（GTO分析）、健身與烹飪的熱情，因為我深信嚴謹的邏輯與生活的感性是相輔相成的。
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
           )}
 
-          {/* 大學修課心得 */}
+          {/* 大學修課心得 - 維持不動 */}
           {activeTab === 'course' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">
@@ -155,7 +164,7 @@ export default function Home() {
             </section>
           )}
 
-          {/* Quant 經歷 */}
+          {/* Quant 經歷 - 維持不動 */}
           {activeTab === 'quant' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">
@@ -174,7 +183,7 @@ export default function Home() {
             </section>
           )}
 
-          {/* 隨手亂寫 */}
+          {/* 隨手亂寫 - 維持不動 */}
           {activeTab === 'notes' && (
             <div className="h-full flex items-center justify-center pt-20">
               <p className="text-gray-400 font-mono italic text-lg">Content under construction...</p>
