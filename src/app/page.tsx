@@ -9,9 +9,8 @@ export default function Home() {
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
 
-  // 移除 math 附標，只保留純中文標題
   const categories = [
-    { id: 'course', name: '大學修課心得分享' },
+    { id: 'course', name: '大學修課心得' },
     { id: 'quant', name: 'quant相關經驗心得分享' },
     { id: 'notes', name: '隨手亂寫' },
   ];
@@ -41,7 +40,6 @@ export default function Home() {
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
             <div className="space-y-8">
               
-              {/* Home 分類 - 移除附標 */}
               <div 
                 onClick={() => setActiveTab('home')} 
                 className={`group cursor-pointer block ${activeTab === 'home' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
@@ -51,7 +49,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 其他主分類 - 移除附標 */}
               {categories.map((cat) => (
                 <div 
                   key={cat.id} 
@@ -64,7 +61,6 @@ export default function Home() {
                 </div>
               ))}
 
-              {/* 興趣分享手風琴 - 僅保留標題亮度與簡約感 */}
               <div className="group">
                 <button 
                   onClick={() => setIsInterestsOpen(!isInterestsOpen)}
@@ -94,7 +90,6 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* 左下角圖標 */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
           <div className="flex items-center gap-8">
@@ -123,7 +118,7 @@ export default function Home() {
             </section>
           )}
 
-          {/* 大學修課心得 */}
+          {/* 大學修課心得 - 名稱已更新 */}
           {activeTab === 'course' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-12 font-mono">
@@ -132,11 +127,11 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-8">
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-emerald-500/30 transition-all duration-500 group cursor-pointer">
                   <p className="text-xs text-emerald-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
-                  <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">114-1 心得分享</h4>
+                  <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">114-1 修課心得</h4>
                 </div>
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-blue-500/30 transition-all duration-500 group cursor-pointer">
                   <p className="text-xs text-blue-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
-                  <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">114-2 心得分享</h4>
+                  <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">114-2 修課心得</h4>
                 </div>
               </div>
             </section>
