@@ -105,21 +105,16 @@ export default function Home() {
       {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-white text-gray-900 overflow-y-auto selection:bg-gray-200">
         
-        {/* Home 分頁的超大圖片與內容 */}
+        {/* Home 頁面：超大橫幅 + 內容 */}
         {activeTab === 'home' && (
           <section className="animate-in fade-in duration-1000">
-            {/* 超大滿版圖片容器 */}
-            <div className="w-full h-[45vh] overflow-hidden relative group">
+            <div className="w-full">
               <img 
                 src="/images/hk_night.jpg" 
                 alt="Hong Kong Night" 
-                className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                className="w-full h-auto block grayscale-[10%] hover:grayscale-0 transition-all duration-700"
               />
-              {/* 輕微的漸層遮罩，讓底部的白色過渡更平滑 */}
-              <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent"></div>
             </div>
-
-            {/* 文字內容區塊 */}
             <div className="max-w-4xl px-24 py-20 space-y-32">
               <div>
                 <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">個人介紹</h2>
@@ -129,34 +124,29 @@ export default function Home() {
                   <p>除了學術研究，我也積極參與各類量化競賽與實習計畫，不斷探索金融科技與策略博弈的邊界。</p>
                 </div>
               </div>
-
               <div>
                 <h2 className="text-6xl font-bold text-black mb-12 tracking-tighter">關於這裡</h2>
                 <div className="space-y-8 text-xl text-gray-600 leading-relaxed font-light">
-                  <p>
-                    這裡是我用來紀錄學術足跡、量化思考與生活隨筆的空間。透過文字，我試著將抽象的數學邏輯實體化，並將其應用在對市場與博弈的理解中。
-                  </p>
-                  <p>
-                    除了硬核的技術分享，這裡也會存放我對德州撲克（GTO分析）、健身與烹飪的熱情，因為我深信嚴謹的邏輯與生活的感性是相輔相成的。
-                  </p>
+                  <p>這裡是我用來紀錄學術足跡、量化思考與生活隨筆的空間。透過文字，我試著將抽象的數學邏輯實體化，並將其應用在對市場與博弈的理解中。</p>
+                  <p>除了硬核的技術分享，這裡也會存放我對德州撲克（GTO分析）、健身與烹飪的熱情，因為我深信嚴謹的邏輯與生活的感性是相輔相成的。</p>
                 </div>
               </div>
             </div>
           </section>
         )}
 
-        {/* 其他分頁維持原本的 Padding 佈局 (Course, Quant, Notes) */}
-        {(activeTab !== 'home') && (
+        {/* 修課心得、Quant、Notes 分頁內容 (全部補回) */}
+        {activeTab !== 'home' && (
           <div className="max-w-5xl p-24">
             {activeTab === 'course' && (
               <section className="animate-in fade-in duration-500 space-y-12">
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Course Reviews</h3>
                 <div className="grid grid-cols-1 gap-8">
-                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm">
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                     <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">114-1 修課心得</h4>
                   </div>
-                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm">
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                     <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">114-2 修課心得</h4>
                   </div>
@@ -168,11 +158,11 @@ export default function Home() {
               <section className="animate-in fade-in duration-500 space-y-12">
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Quant Experiences</h3>
                 <div className="grid grid-cols-1 gap-8">
-                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm">
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                     <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">Jane Street FTTP</h4>
                   </div>
-                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm">
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                     <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">Citadel APAC The Terminal</h4>
                   </div>
