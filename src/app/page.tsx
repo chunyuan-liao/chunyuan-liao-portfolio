@@ -9,10 +9,11 @@ export default function Home() {
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
 
+  // 移除 math 附標，只保留純中文標題
   const categories = [
-    { id: 'course', name: '大學修課心得分享', math: '\\text{Course Reviews}' },
-    { id: 'quant', name: 'quant相關經驗心得分享', math: '\\text{Quant Experiences}' },
-    { id: 'notes', name: '隨手亂寫', math: '\\text{Miscellaneous Notes}' },
+    { id: 'course', name: '大學修課心得分享' },
+    { id: 'quant', name: 'quant相關經驗心得分享' },
+    { id: 'notes', name: '隨手亂寫' },
   ];
 
   const interests = [
@@ -35,11 +36,12 @@ export default function Home() {
           </p>
         </div>
 
-        <nav className="flex-1 space-y-12 overflow-y-auto pr-2 custom-scrollbar">
+        <nav className="flex-1 space-y-10 overflow-y-auto pr-2 custom-scrollbar">
           <div>
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
-            <div className="space-y-10">
+            <div className="space-y-8">
               
+              {/* Home 分類 - 移除附標 */}
               <div 
                 onClick={() => setActiveTab('home')} 
                 className={`group cursor-pointer block ${activeTab === 'home' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
@@ -47,11 +49,9 @@ export default function Home() {
                 <div className="text-lg text-gray-200 group-hover:text-white transition-all duration-300 font-normal">
                   Home
                 </div>
-                <div className="text-sm text-gray-400 font-mono mt-2 group-hover:text-emerald-400 transition-all duration-300">
-                  <InlineMath math="\\text{Back to Hub}" />
-                </div>
               </div>
 
+              {/* 其他主分類 - 移除附標 */}
               {categories.map((cat) => (
                 <div 
                   key={cat.id} 
@@ -61,12 +61,10 @@ export default function Home() {
                   <div className="text-lg text-gray-200 group-hover:text-white transition-all duration-300 font-normal leading-snug">
                     {cat.name}
                   </div>
-                  <div className="text-sm text-gray-400 font-mono mt-2 group-hover:text-emerald-400 transition-all duration-300">
-                    <InlineMath math={cat.math} />
-                  </div>
                 </div>
               ))}
 
+              {/* 興趣分享手風琴 - 僅保留標題亮度與簡約感 */}
               <div className="group">
                 <button 
                   onClick={() => setIsInterestsOpen(!isInterestsOpen)}
@@ -79,19 +77,13 @@ export default function Home() {
                     {isInterestsOpen ? <FaChevronDown size={14} /> : <FaChevronRight size={14} />}
                   </div>
                 </button>
-                <div className="text-sm font-mono mt-2 mb-4">
-                  <InlineMath math="\text{\color{#93c5fd}Interests \,\, \& \,\, Lifestyle}" />
-                </div>
 
                 {isInterestsOpen && (
-                  <div className="pl-6 border-l-2 border-[#2a2a2a] space-y-8 mt-8 animate-in fade-in slide-in-from-top-2">
+                  <div className="pl-6 border-l-2 border-[#2a2a2a] space-y-6 mt-6 animate-in fade-in slide-in-from-top-2">
                     {interests.map((item) => (
                       <div key={item.name} className="group/sub cursor-pointer block opacity-70 hover:opacity-100">
                         <div className="text-[15px] text-gray-300 group-hover/sub:text-white transition-all duration-300">
                           {item.name}
-                        </div>
-                        <div className="text-xs text-gray-500 font-mono mt-1.5 group-hover/sub:text-blue-400 transition-all duration-300">
-                          <InlineMath math={item.math} />
                         </div>
                       </div>
                     ))}
@@ -102,6 +94,7 @@ export default function Home() {
           </div>
         </nav>
 
+        {/* 左下角圖標 */}
         <div className="mt-auto pt-10 border-t border-[#2a2a2a]">
           <p className="text-xs text-gray-400 uppercase tracking-[0.2em] font-bold mb-8">其他相關</p>
           <div className="flex items-center gap-8">
@@ -118,7 +111,6 @@ export default function Home() {
       {/* --- 右側內容區 --- */}
       <main className="flex-1 ml-80 bg-[#050505] overflow-y-auto">
         <div className="max-w-5xl p-24">
-          
           {/* Home 內容 */}
           {activeTab === 'home' && (
             <section className="animate-in fade-in duration-700">
@@ -131,55 +123,50 @@ export default function Home() {
             </section>
           )}
 
-          {/* 大學修課心得內容 - 新增 114-1 與 114-2 */}
+          {/* 大學修課心得 */}
           {activeTab === 'course' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-12 font-mono">
-                <InlineMath math="\S \,\, \text{Course Reviews}" />
+                Course Reviews
               </h3>
               <div className="grid grid-cols-1 gap-8">
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-emerald-500/30 transition-all duration-500 group cursor-pointer">
                   <p className="text-xs text-emerald-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">114-1 心得分享</h4>
-                  <p className="text-gray-500 mt-4 italic font-light">Semester I Review & Course Insights</p>
                 </div>
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-blue-500/30 transition-all duration-500 group cursor-pointer">
                   <p className="text-xs text-blue-400 font-bold tracking-widest mb-4 font-mono">ACADEMIC / YEAR 114</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">114-2 心得分享</h4>
-                  <p className="text-gray-500 mt-4 italic font-light">Semester II Review & Course Insights</p>
                 </div>
               </div>
             </section>
           )}
 
-          {/* Quant 經歷內容 */}
+          {/* Quant 經歷 */}
           {activeTab === 'quant' && (
             <section className="animate-in fade-in duration-500 space-y-12">
               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-12 font-mono">
-                <InlineMath math="\S \,\, \text{Quant Experiences}" />
+                Quant Experiences
               </h3>
               <div className="grid grid-cols-1 gap-8">
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-emerald-500/30 transition-all duration-500 group">
                   <p className="text-xs text-emerald-400 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-emerald-400 transition-colors">Jane Street FTTP</h4>
-                  <p className="text-gray-500 mt-4 italic font-light">First-Year Trading and Technology Program</p>
                 </div>
                 <div className="p-12 border border-[#2a2a2a] bg-[#0a0a0a] hover:border-blue-500/30 transition-all duration-500 group">
                   <p className="text-xs text-blue-400 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
                   <h4 className="text-3xl text-white font-normal group-hover:text-blue-400 transition-colors">Citadel APAC The Terminal</h4>
-                  <p className="text-gray-500 mt-4 italic font-light">Regional Algorithmic Trading Finalist</p>
                 </div>
               </div>
             </section>
           )}
 
-          {/* 隨手亂寫內容 */}
+          {/* 隨手亂寫 */}
           {activeTab === 'notes' && (
             <div className="h-full flex items-center justify-center pt-20">
               <p className="text-gray-600 font-mono italic">Content under construction...</p>
             </div>
           )}
-
         </div>
       </main>
     </div>
