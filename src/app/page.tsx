@@ -39,8 +39,8 @@ export default function Home() {
           <div>
             <p className="text-xs text-emerald-400 uppercase tracking-[0.2em] font-bold mb-8 font-mono opacity-90">Directory</p>
             <div className="space-y-8">
-              <div 
-                onClick={() => setActiveTab('home')} 
+              <div
+                onClick={() => setActiveTab('home')}
                 className={`group cursor-pointer block ${activeTab === 'home' ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
               >
                 <div className="text-lg text-gray-200 group-hover:text-white transition-all duration-300 font-normal">
@@ -49,8 +49,8 @@ export default function Home() {
               </div>
 
               {categories.map((cat) => (
-                <div 
-                  key={cat.id} 
+                <div
+                  key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
                   className={`group cursor-pointer block ${activeTab === cat.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`}
                 >
@@ -61,7 +61,7 @@ export default function Home() {
               ))}
 
               <div className="group">
-                <button 
+                <button
                   onClick={() => setIsInterestsOpen(!isInterestsOpen)}
                   className="w-full flex items-center justify-between text-left transition-all duration-300 opacity-70 hover:opacity-100"
                 >
@@ -109,9 +109,9 @@ export default function Home() {
         {activeTab === 'home' && (
           <section className="animate-in fade-in duration-1000">
             <div className="w-full h-[80vh] overflow-hidden relative group">
-              <img 
-                src="/images/hk_night.jpg" 
-                alt="Hong Kong Night" 
+              <img
+                src="/images/hk_night.jpg"
+                alt="Hong Kong Night"
                 className="absolute w-full h-[100%] object-cover object-bottom grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -148,10 +148,12 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Course Reviews</h3>
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">NOTICE</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors italic">
-                      Currently occupied with several tasks; content will be updated soon.
-                    </h4>
+                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114-1</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">114-1 Course Review</h4>
+                  </div>
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
+                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114-2</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">114-2 Course Review</h4>
                   </div>
                 </div>
               </section>
@@ -163,10 +165,12 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Quant Experiences</h3>
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">NOTICE</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors italic">
-                      Currently occupied with several tasks; content will be updated soon.
-                    </h4>
+                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">Jane Street FTTP</h4>
+                  </div>
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
+                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">Citadel APAC The Terminal</h4>
                   </div>
                 </div>
               </section>
@@ -175,9 +179,7 @@ export default function Home() {
             {/* Notes */}
             {activeTab === 'notes' && (
               <div className="h-full flex items-center justify-center pt-20">
-                <p className="text-gray-400 font-mono italic text-lg text-center">
-                  Currently occupied with several tasks; content will be updated soon.
-                </p>
+                <p className="text-gray-400 font-mono italic text-lg">Content under construction...</p>
               </div>
             )}
           </div>
