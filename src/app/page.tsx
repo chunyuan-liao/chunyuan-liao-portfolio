@@ -148,12 +148,20 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Course Reviews</h3>
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114-1</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">114-1 Course Review</h4>
+                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">SPRING 2026 / MATH5131</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors mb-6">Modern Cryptography</h4>
+                    <div className="text-lg text-gray-600 space-y-4 font-light leading-relaxed">
+                      <p>Explored the algebraic construction of AES, specifically the Rijndael S-box over <InlineMath math="GF(2^8)" /> and MixColumns transformations.</p>
+                      <p>Analyzed Linear Feedback Shift Registers (LFSRs) and stream ciphers, providing a rigorous mathematical foundation for information security.</p>
+                    </div>
                   </div>
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono opacity-80">ACADEMIC / YEAR 114-2</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">114-2 Course Review</h4>
+                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono opacity-80">SPRING 2026 / ACADEMIC</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors mb-6">Advanced Mathematics</h4>
+                    <div className="text-lg text-gray-600 space-y-4 font-light leading-relaxed">
+                      <p>Focusing on Linear Algebra methods in Combinatorics and spectral theory on graphs.</p>
+                      <p>Application of Taylor expansions and linear operators in high-dimensional data spaces and probability theory.</p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -166,11 +174,24 @@ export default function Home() {
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
                     <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">2026 / EXPERIENCE</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors">Jane Street FTTP</h4>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors mb-6">Jane Street FTTP (Hong Kong)</h4>
+                    <p className="text-lg text-gray-600 font-light leading-relaxed">
+                      Engaged in intensive market-making simulations. Developed a deep understanding of ADR arbitrage, order book dynamics, and the mathematical discipline required for real-time decision making.
+                    </p>
                   </div>
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">2026 / COMPETITION</p>
-                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors">Citadel APAC The Terminal</h4>
+                    <p className="text-xs text-blue-600 font-bold tracking-widest mb-4 font-mono">2026 / PROJECT</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-blue-700 transition-colors mb-6">Mean Reversion Trading Terminal</h4>
+                    <p className="text-lg text-gray-600 font-light leading-relaxed">
+                      Developed a simulated cryptocurrency trading engine utilizing NumPy and Pandas. Implemented mNAV-based alpha signals and automated execution logic for volatile markets.
+                    </p>
+                  </div>
+                  <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-purple-50 hover:border-purple-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
+                    <p className="text-xs text-purple-600 font-bold tracking-widest mb-4 font-mono">SUMMER 2026 / RESEARCH</p>
+                    <h4 className="text-3xl text-black font-normal group-hover:text-purple-700 transition-colors mb-6">NCTS USRP</h4>
+                    <p className="text-lg text-gray-600 font-light leading-relaxed italic">
+                      Admitted to the National Center for Theoretical Sciences Undergraduate Summer Research Program for advanced mathematical research.
+                    </p>
                   </div>
                 </div>
               </section>
@@ -178,8 +199,12 @@ export default function Home() {
 
             {/* Notes */}
             {activeTab === 'notes' && (
-              <div className="h-full flex items-center justify-center pt-20">
-                <p className="text-gray-400 font-mono italic text-lg">Content under construction...</p>
+              <div className="h-full flex flex-col items-center justify-center pt-20 animate-in fade-in duration-700">
+                <div className="w-12 h-[1px] bg-gray-300 mb-8"></div>
+                <p className="text-gray-500 font-mono italic text-lg text-center max-w-md">
+                  Currently processing research at NCTS and preparing for 2027 Summer Quant Internship applications.
+                </p>
+                <div className="w-12 h-[1px] bg-gray-300 mt-8"></div>
               </div>
             )}
           </div>
