@@ -148,7 +148,7 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Course Reviews</h3>
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">UNDER CONSTRUCTION</p>
+                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">NOTICE</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors italic">
                       Currently occupied with several tasks; content will be updated soon.
                     </h4>
@@ -163,7 +163,7 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.4em] mb-12 font-mono">Quant Experiences</h3>
                 <div className="grid grid-cols-1 gap-8">
                   <div className="p-12 border border-gray-200 bg-gray-100 hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-500 group cursor-pointer rounded-sm shadow-sm">
-                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono">UNDER CONSTRUCTION</p>
+                    <p className="text-xs text-emerald-600 font-bold tracking-widest mb-4 font-mono opacity-80">NOTICE</p>
                     <h4 className="text-3xl text-black font-normal group-hover:text-emerald-700 transition-colors italic">
                       Currently occupied with several tasks; content will be updated soon.
                     </h4>
@@ -175,7 +175,7 @@ export default function Home() {
             {/* Notes */}
             {activeTab === 'notes' && (
               <div className="h-full flex items-center justify-center pt-20">
-                <p className="text-gray-400 font-mono italic text-lg">
+                <p className="text-gray-400 font-mono italic text-lg text-center">
                   Currently occupied with several tasks; content will be updated soon.
                 </p>
               </div>
